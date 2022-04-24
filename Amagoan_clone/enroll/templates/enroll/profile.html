@@ -1,0 +1,25 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 my-3 mx-3">
+          <div><a class="text-secondary mx-5 {{active}} "style=" font-size:30px;font-family: 'Times New Roman', Times, serif; text-decoration:none; "href="#">Profile</a></div>
+          <div class="my-3 mx-5"><a class="text-secondary"style="font-family: 'Times New Roman', Times, serif; font-size:30px;text-decoration:none; " href="{% url 'adress' %}">Address</a></div>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-4 my-4 ">
+          <div class="card shadow px-3 py-4 mx-2">
+              <form action="" method="POST">
+                {% csrf_token %}
+                {% for f in form %}
+                  {{f.label_tag}}
+                  {{f}}<br><br>
+                  {% endfor %}
+                  <input class="bg-primary"  type="submit">
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

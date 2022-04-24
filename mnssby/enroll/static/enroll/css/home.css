@@ -1,0 +1,15 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+.container-fluid
+{
+  min-height: 100%;
+  min-width:100%;
+}
+a:hover{
+  font-size: 30px;
+}
+a:active{
+  background:gold;
+}

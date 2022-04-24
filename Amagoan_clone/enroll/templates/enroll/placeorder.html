@@ -1,0 +1,36 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+ <div class="container-fluid">
+     <div class="row">
+         <div class="col-sm-6 ">
+            <h3 class="my-3 text-center">order_summery</h3>
+            <hr>
+            {% for item in cart_item %}
+            <div class=" card shadow px-2 px-4 my-5 ">
+                <h3>Product: {{item.product.title}}</h3>
+                <h3>Quantity: {{item.quentity}}</h3>
+                <h3>product_Cost: {{item.product.Selling_price}}</h3>
+            </div>
+            {% endfor %}
+            <h4>Total_product_cost(including gst): 200</h4>
+         </div>
+         <div class="col-sm-6 ">
+            <h3 class="my-3 text-center">Shipping_Adress</h3>
+            <hr>
+        <form action="/payment">
+            {% for a in add %}
+            <h3><input type="radio" value="{{a.id}}" name="custid" id="custid{{forloop.counter}}"> Address_{{forloop.counter}}</h3>
+            <div class="card shadow px-2 px-4 my-5 ">
+                <h3>Name: {{a.Name}}</h3>
+                <h3>City: {{a.City}}</h3>
+                <h3>Pin_code: {{a.Pin_code}}</h3>
+                <h3>State: {{a.state}}</h3>
+           </div>
+           {% endfor %}
+         </div>
+         <button type="submit" class="my-2 btn btn-primary bg-danger" style="width:200px; margin-left:1000px;">Continue</button>
+      </form>
+     </div>
+ </div>
+{% endblock content %}

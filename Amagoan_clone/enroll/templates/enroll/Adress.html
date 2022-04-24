@@ -1,0 +1,23 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 my-3 mx-3">
+          <div><a class="text-secondary mx-5"style=" font-size:30px;font-family: 'Times New Roman', Times, serif; text-decoration:none; "href="{% url 'profile' %}">Profile</a></div>
+          <div class="my-3 mx-5 {{active}}"><a class="text-secondary"style="font-family: 'Times New Roman', Times, serif; font-size:30px;text-decoration:none; " href="#">Address</a></div>
+      </div>
+      <div class="col-8 my-4">
+        {% for cutomer in customer %}
+          <div class="card shadow px-3 py-4 mx-2" style="width:400px; float:left;">
+              <h1>Adress:-{{forloop.counter}}</h1>
+              <span>Name:-{{cutomer.Name}}</span>
+              <span>City:-{{cutomer.City}}</span>
+              <span>Pincode:-{{cutomer.Pin_code}}</span>
+              <span>State:-{{cutomer.State}}</span>
+            </div>
+              {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

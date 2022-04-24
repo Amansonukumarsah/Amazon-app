@@ -1,0 +1,28 @@
+{% extends 'enroll/basice.html' %}
+{% load static %}
+{% block content %}
+<div style="display:flex;" class="text-center mt-3">
+    <h1 style="margin-left:30px;">RITIK LOAN SERVICE</h1>
+    <img src="{% static 'enroll/img/ritikphoto.jpg' %}"  style="width:100px; height:100px; margin-left:50%;"alt="ritik">
+</div>
+<hr>
+
+<h1 style="background-color:pink;" class="mt-5 text-center">FEED_BACK FORM</h1>
+<form action="" class="mt-5">
+    <label for="">Name:-</label>
+        <input type="text">
+    <br><br>
+    <label for="">Registration_id:-</label>
+        <input type="text">
+    <br><br>
+    <label for="">Email:-</label>
+        <input type="Email">
+    <br><br>
+    <label for="">Feed_Back:-</label>
+        <textarea name="feed_back" id="" cols="30" rows="10"></textarea>
+    <br><br>
+        <input type="checkbox"> <h9>please read term and condition</h9>
+    <br><br>
+        <input type="submit" value="submit">
+</form>
+{% endblock content %}

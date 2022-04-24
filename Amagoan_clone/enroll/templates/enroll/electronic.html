@@ -1,0 +1,47 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .elctro{
+  background-color: rgb(133, 123, 123);
+        
+    }
+    .col-4 a{
+        text-decoration:none;
+    }
+    }
+    .col-4{
+        overflow:auto;
+    }
+    .col-8{
+        overflow:auto;
+    }
+</style>
+<div class=" elctro container-fluid">
+    <div class="row elctro">
+        <div class="col-4 text-center" style="display:block;">
+            <h2 class="text-white text-center">Filter</h2>
+            <hr>
+                <a  href="{% url 'elctro'  %}"><button class=" btn bg-secondary my-3">All</button></a><br>
+                <a  href="{% url 'elctrodata' 'below' %}" ><button class=" btn bg-secondary my-3">Below 30000</button><br>
+                <a  href="{% url 'elctrodata' 'above' %}" ><button class=" btn bg-secondary my-3">Above 30000</button></a>
+        </div>
+        <div class="col-8  my-3" >
+            {% for el in electronic %}
+                <div style="float: left;" class="text-center">
+                        <h1>{{el.title}}</h1>
+                    <a class="mx-4"  href="{% url 'productdetails' el.id %}"><img  style="height:400px; width:400px; margin-top:10px;" src="{{el.Product_image.url}}" alt=""></a><br>
+                    <small>Rs- {{el.Selling_price}}</small><br><br>
+                </div>
+                {% endfor %}
+        </div>
+
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock content %}

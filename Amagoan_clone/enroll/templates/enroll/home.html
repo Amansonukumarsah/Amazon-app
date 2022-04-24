@@ -1,0 +1,90 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+<div class="slider">
+    <div id="img-slide">
+        <img style="width:800%;"src="{% static 'enroll/img/shope.jpg' %}" alt="">
+    </div>    
+    <a class="btn1 animation" id="prev" href="">&#10094</a>
+    <a class="btn1 animation" id="next" href="">&#10095</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card card1">
+                    <div class="card-header">Mobils</div>
+                    <img class="card-img-top" src=" {% static 'enroll/img/redimi.jpg' %}" alt="">
+                    <div class="card-body">
+                        <div class="card-link"><a href="">Shop Now</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div class="card card1">
+                    <div class="card-header">T-shirt</div>
+                    <img class="card-img-top" src=" {% static 'enroll/img/banner1.jpg' %}" alt="">
+                    <div class="card-body">
+                        <div class="card-link"><a href="">Shop Now</a></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-4">
+                <div class="card card1">
+                    <div class="card-header">Jeans</div>
+                    <img class="card-img-top" src=" {% static 'enroll/img/jeans-4.jpg' %}" alt="">
+                    <div class="card-body">
+                        <div class="card-link"><a href="">Shop Now</a></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="slice card my-3">
+    <div class="card-header">FASHION</div>
+        <div  class="owl-carousel owl-theme">
+            {% for ts in T_shirt %}
+                <a href="{% url 'productdetails' ts.id %}"><img  src="{{ts.Product_image.url}}" alt=""></a>
+           {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="slice card my-3">
+    <div class="card-header">Comfort Sofa</div>
+    <div class="card-body">
+        {% for s in sofa %}
+       <a class="mx-4"href="{% url 'productdetails' s.id %}"><img style="width:400px;" src="{{s.Product_image.url}}" alt=""></a>
+       {% endfor %}
+    </div>
+</div>
+
+<div class="bg-danger text-center banner">
+    <h1 class="text-white">Sale is Live</h1>
+    <h1 class="text-white">NOW</h1>
+</div> 
+
+
+<div class=" slice  my-3" >
+    <h1 style="background-color:black;" class="text-white">ELECTRONICE</h1>
+     <div  class="owl-carousel owl-theme card-body"> 
+        {% for el in electronic %}
+            <a class="mx-1"  href="{% url 'productdetails' el.id %}"><img  style="height:300px; width:300px;" src="{{el.Product_image.url}}" alt=""></a>
+    {% endfor %}
+     </div> 
+</div>
+
+
+<div class="mx-0 bg-secondary text-center" style="margin-top:10px; height:50px;">
+    <button id="backtoup" class="text-white bg-secondary" style="height:50px; width:100%;">BACK TO TOP</button>
+</div>
+{% endblock content %} 

@@ -1,0 +1,75 @@
+{% load static %}
+<ul id="nav">
+    <li class="shope"><a href="{% url 'home' %}">Shopping</a></li>
+    <li class="flage"><img  src="{% static 'enroll/img/flag.jpg' %}" alt="" srcset=""></li>
+    <li id="setlocation" >
+        <span  class="text-white"onclick="openpincode()">Set Location</span>
+    </li>
+    <li id="search">
+        <select name="" id="option">
+            <option value="">Electronics</option>
+            <option value="">Mobils</option>
+            <option value="">Laptop</option>
+            <option value="">Shirt</option>
+            <option value="">Jeans</option>
+        </select>
+        <li>
+            <input type="text" id="inp" placeholder="search....">
+        </li>
+    </li>
+        <li class="dropdown">
+            <span onmouseover="dropdown()" onclick="dropout()"id="dropbtn"  class="btn">hello {{request.user}}</span>
+            <li id="content"  class="dropcontent">
+                {% if  request.user.is_authenticated %}
+                    <a href="{% url 'profile' %}">Profile</a>
+                    <a href="{% url 'passwordchange' %}">ChangePassword</a>
+                    <a href="{% url 'order' %}">Order</a>
+                    <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'register' %}">Register</a>
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </li>
+        </li>
+    <li id="return"><a href="">Return order</a></li>
+    <li id="cart">
+        {% if  request.user.is_authenticated %}
+            <a href="{% url 'show_cart' %}"><i class="fas fa-luggage-cart"></i>Cart</a>
+        {% else %}
+            <a href="{% url 'login_cart' %}"><i class="fas fa-luggage-cart"></i>Cart</a>
+        {% endif %}
+    </li>
+</ul>
+<ul class="nav2" style="background-color: rgb(60, 105, 105);">
+    <li style="margin-top:16px;">
+        <span id="all" onclick="opennav()" class="text-white" >&#9776;All</span>
+    </li>
+    <li>
+        <a href="">gift</a>
+    </li>
+    <li>
+        <a href="{% url 'elctro' %}">Electronice</a>
+    </li>
+    <li>
+        <a href="">cutomer</a>
+    </li>
+</ul>
+<dv id="slidenav2" class="slidenav2">
+    <a href="" onclick="closenav()" class="crossbtn">&times;</a>
+    <a href="">home</a>
+    <a href="">home</a>
+    <a href="">home</a>
+</dv>
+
+<div class=" card pincode  text-center" id="setpincode">
+    <h6 style="  width:270px; margin-left:60px; height:30px; border-radius:20px ;" class="bg-secondary  " >Set your location</h6>
+    <p>Delivery options and delivery speeds <br>may vary for different locations.</p>
+    <button style="width:300px; height:30px; border-radius:20px ;" class="bg-warning  "><a style="text-decoration:none;"href="{% url 'register' %}">sign in to see your address</a></button>
+    <hr>
+    <div class=" card-body pincode1">
+        <input style="width:250px; height:35px; border-radius:20px ;" class="text-center"  type="text" placeholder="Enter pincode">
+        <input style="width:100px;  height:35px; border-radius:20px ;" class="text-center bg-warning"placeholder="Password" type="submit">
+    </div>
+    <hr>
+    <button style="width:250px; "onclick="closepincode()"type="submit" class="bg-warning">Done</button>
+</div>

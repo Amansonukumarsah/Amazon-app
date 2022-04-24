@@ -1,0 +1,152 @@
+{% extends 'enroll/basice.html' %}
+{% load static %}
+{% block content %}
+<div style="display:flex;" class="text-center mt-3">
+    <h1 style="margin-left:30px;">RITIK LOAN SERVICE</h1>
+    <img src="{% static 'enroll/img/ritikphoto.jpg' %}"  style="width:100px; height:100px; margin-left:50%;"alt="ritik">
+</div>
+<hr>
+<h1 style="background-color:pink;" class="mt-3 text-center">CONTACT ME</h1>
+<style>
+table,th,td{
+    border:1px solid black;
+    border-color:pink;
+}
+tr:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+th:nth-child(even),td:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+tr:hover {
+    background-color: #D6EEEE;
+    }
+</style>
+<div class="mt-10">
+    <input type="text" Id="search"  onkeyup="searchfun()" placeholder="district.......">
+    <table style="width:100%; margin-top:200px;" Id="tab">
+        <tr>
+            <th>
+              S.NO
+            </th>
+            <th>
+              NAME
+            </th>
+            <th>
+              DISTRICT
+            </th>
+            <th>
+              CONTACT
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                AMAN kumar sah
+            </td>
+            <td>
+                MADHUBANI
+            </td>
+            <td>
+                6200894044
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                Sonu kumar sah
+            </td>
+            <td>
+                MADHUBANI
+            </td>
+            <td>
+                6200894044
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                Anish
+            </td>
+            <td>
+                Patana
+            </td>
+            <td>
+                6200894044
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>
+                Raju 
+            </td>
+            <td>
+                Purnea
+            </td>
+            <td>
+                6200894044
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>
+                Rohit
+            </td>
+            <td>
+                Nawada
+            </td>
+            <td>
+                6200894044
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>
+                Subham
+            </td>
+            <td>
+                Nawada
+            </td>
+            <td>
+                6200894044
+            </td>
+        </tr>
+        
+    </table>
+    <script>
+        function searchfun()
+        {
+            let filter=document.getElementById("search").value.toUpperCase();
+            let table=document.getElementById("tab");
+            let tr=table.getElementsByTagName ("tr");
+            for(var i=0;i<tr.length;i++)
+            {
+                let td=tr[i].getElementsByTagName('td')[2];
+                if(td)
+                {
+                    let textvalue=td.textcontent||td.innerHTML;
+                    if(textvalue.toUpperCase().indexOf(filter)>-1)
+                    {
+                        tr[i].style.display=" ";
+                    }
+                    else{
+                        tr[i].style.display="none";
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+{% endblock content %}

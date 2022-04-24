@@ -1,0 +1,50 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    #order{
+        right:0px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="my-4  order border-end">
+                <h4 class="text-primary mx-5">Welcome <span class="text-capitalize">{{request.user}}</span></h4>
+                <ul class="list-unstyled">
+                    <li class="d-grid"><a class="btn btn-primary" style="width:200px;"href="{% url 'order' %}">Order</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            {% for od in order %}
+                <div class="card my-5" style="width:500px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img class="my-2 mx-2"style="width:100px; height:100px;" src="{{od.product.Product_image.url}}" alt="">
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-warning fw-bold mx-4">Product:-{{od.product.title}}</small>
+                                <h6 class="my-2 text-secondary">quentity <span>{{od.quentity}}</span></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <small>status: <small>{{od.Status}}</small></small>
+                                
+                                {% comment %} {% if od.Status=="Accepted" %} {% endcomment %}
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role='progressbar' style="width:50%;" aria-valuemin="0";,aria-valuemax="100",aria-valuenow="20";>
+                                        </div>
+                                    </div>
+                                {% comment %} {% endif %} {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="offset-sm-2"></div>
+    </div>
+</div>
+{% endblock content %}

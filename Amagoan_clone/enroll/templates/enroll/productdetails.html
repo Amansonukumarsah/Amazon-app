@@ -1,0 +1,36 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 my-4 text-center">
+            <h1 class="text-center">{{product.title}}</h1>
+            <hr>
+            <img style="width:400px; height:300px;" src="{{product.Product_image.url}}" alt="">
+        </div>
+        <div class="col-4 offset-2 my-4">
+            <h1>Product_name:-{{product.title}}</h1>
+            <hr>
+             <h4>Rs:-{{product.Selling_price}}<del class="mx-2">{{product.Discount_price}}</del></h4>
+             <h2>Brand:-{{product.Brand}}</h2>
+             <p>{{product.Description}}</p>
+             {% if request.user.is_authenticated %}
+                {% if item_already_in_cart %}
+                    <a class="btn btn-danger shadow px-2 py-2" href="{% url 'show_cart' %}">Go_to_cart</a>
+                    <a class="btn btn-danger shadow px-2 py-2" href="{% url 'cart' %}"> Buy_now </a>
+                {% else %}
+                    <form action="/cart" class="d-inline">
+                       <input  type="hidden" value={{product.id}} id="prod_id" name="prod_id">
+                       <button class="btn btn-secondary shadow px-2 py-2">Add_Cart</button>
+                    </input>
+                    </form>
+                    <a class="btn btn-danger shadow px-2 py-2" href="{% url 'cart' %}"> Buy_now </a>
+                {% endif %}
+            {% else %}
+            <a class="btn btn-danger shadow px-2 py-2" href="{% url 'login' %}">Add_Cart</a>
+            <a class="btn btn-danger shadow px-2 py-2" href="{% url 'login' %}"> Buy_now </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

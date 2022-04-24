@@ -1,0 +1,31 @@
+{% extends 'enroll/basice.html' %}
+{% load static %}
+{% block content %}
+<div style="display:flex;" class="text-center mt-3">
+    <h1 style="margin-left:30px;">RITIK LOAN SERVICE</h1>
+    <img src="{% static 'enroll/img/ritikphoto.jpg' %}"  style="width:100px; height:100px; margin-left:50%;"alt="ritik">
+</div class="text-center">
+<hr>
+<h1 style="background-color:pink;" class="mt-3 text-center">Login_here</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+            <div class="card col-sm-3 text-center my-5 bg-info">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for form in fm %}
+                      {{form.label}}
+                      <br>
+                        {{form}}<br><br>
+                        {% endfor %}
+                        <input type="submit" value="submit" class="btn btn-primary">
+                    </form>
+            </div>
+            <div class="col-sm-5">
+            </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+.all{
+    background-color: black;
+}
+.grid_container{
+    display: grid;
+    grid-template-columns: auto;
+}
+.head{
+    background-color: blanchedalmond;
+    text-align: center;
+}
+.middle{
+    background-color: tomato;
+    text-align: center;
+}
+.foot{
+    background-color: sandybrown;
+    text-align: center;
+}
+.navall{
+    background-color: blueviolet;
+}
+.link{
+    background-color: blue;
+}

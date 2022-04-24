@@ -1,0 +1,30 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-success text-center">
+    <div class="card shadow px-2 px-4 my-5 bg-success text-center" style=" width:800px; margin-left:400px;box-shadow: rgb(42, 99, 67);">
+        <h4 style="margin-top:20px; margin-left:300px; width:250px; height:30px; border-radius:20px ;" class="bg-secondary">REGISTER HERE</h4>
+        <form action="" method="POST" class="my-5" nonvalidate class="shadow p-5">
+            {% if messages %}
+              {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}}"{% endif %}>{{message}}</p>
+              {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            {% for fm in form %}
+            <p>{{fm.label_tag}}</p>
+           <p style="width:400px; margin-left:200px; border-radius:200px;" placeholder=""> {{fm}} </p>
+           <small class="alert-danger my-2">{{fm.errors|striptags}}</small>
+            {% endfor %}
+            <input type="submit" style="margin-left:2%; width:200px;"  value="submit" class="btn btn-info text-center">
+            <p class="message my-2" style="margin-top:5px;">Registered? <a href="{% url 'login' %}" class="text-white">Login here</a></p>
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+             <p class="alert alert-danger my-3" style="border-radius:200px;">{{error}}</p>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock content %}

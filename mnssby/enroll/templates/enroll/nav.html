@@ -1,0 +1,62 @@
+{% load static %}
+<nav style="margin-left:5px;">
+    <ul  style="list-style-type:none;">
+        <div>
+        <img src="{% static 'enroll/img/loan free.jpg' %}"class="text-white rounded-circle mt-3 mb-3" style="width:100px; height:100px;" alt="logo" srcset="">
+        <h6 class="mt-0" style="margin-left:30px;">loan</h6>
+        </div>
+        <hr>
+        {% if not request.user.is_authenticated %}
+            <li class="mt-5 link1 ">
+                <a href="{% url 'dash' %}" class=" link text-white" style="text-decoration:none">Home</a>
+            </li>
+            <li class="mt-5 ">
+                <a href="{% url 'contact' %}" class="link text-white" style="text-decoration:none">Contact</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'feed' %}" class="link text-white" style="text-decoration:none">Feed_Back</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'app' %}" class="link text-white" style="text-decoration:none">Application</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'guide' %}" class="link text-white" style="text-decoration:none">Guidance</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'register'%}"  class="link text-white" style="text-decoration:none">REGISTER_HERE</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'login'%}"  class="link text-white" style="text-decoration:none">login</a>
+            </li>
+            </li>
+        {% else %}
+            <li class="mt-5">
+                <a href="{% url 'prof'%}"  class="link text-white" style="text-decoration:none">Profile</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'sub'%}"  class="link text-white" style="text-decoration:none">Subsequent_payment</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 're'%}"  class="link text-white" style="text-decoration:none">Re_payment</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'cur'%}"  class="link text-white" style="text-decoration:none">Current_status</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'in'%}"  class="link text-white" style="text-decoration:none">institute_details</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'acc'%}"  class="link text-white" style="text-decoration:none">Account_details</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'can'%}"  class="link text-white" style="text-decoration:none">loan_cancellation</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'ch'%}"  class="link text-white" style="text-decoration:none">Change_password</a>
+            </li>
+            <li class="mt-5">
+                <a href="{% url 'out'%}"  class="link text-white" style="text-decoration:none">log_out</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

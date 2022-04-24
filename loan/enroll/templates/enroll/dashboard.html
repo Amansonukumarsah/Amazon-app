@@ -1,0 +1,56 @@
+{% extends 'enroll/basice.html' %}
+{% load static %}
+{% block content %}
+
+<div style="display:flex;" class="text-center mt-3">
+    <h1 style="margin-left:30px;">RITIK LOAN SERVICE</h1>
+    <img src="{% static 'enroll/img/ritikphoto.jpg' %}"  style="width:100px; height:100px; margin-left:50%;"alt="ritik">
+</div>
+<div class="border mt-3 my-3 bg-dark text-white">
+<marquee behavior="ltr" direction="" onmouseover="this.stop()" onmouseout="this.start()">FREE LOAN SERVICE</marquee>
+</div>
+<div>
+<div class="grap text-center " style="margin-left:40%;">
+            <style>
+                .mySlides {display:none;}
+            </style>
+
+            <body>
+
+
+            <div class="w3-content w3-section text-center" style="width:40%;">
+                <img class="mySlides" src="{% static 'enroll/img/flage.jpg' %}"style="width:100%">
+                <img class="mySlides" src="{% static 'enroll/img/makaut.jpeg' %}"style="width:100%">
+                <img class="mySlides" src="{% static 'enroll/img/th.jpg' %}"style="width:100%">
+                <img class="mySlides" src="{% static 'enroll/img/loan free.jpg' %}" style="width:90%;">
+                <img class="mySlides" src="{% static 'enroll/img/nature.jpg' %}"style="width:100%">
+                <img class="mySlides" src="{% static 'enroll/img/ritikphoto.jpg' %}" style="width:100%">
+            </div>
+
+            <script>
+                var myIndex = 0;
+                carousel();
+
+                function carousel() 
+                {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) 
+                    {
+                        x[i].style.display = "none";  
+                    }
+                    myIndex++;
+                    if (myIndex > x.length) 
+                    {
+                        myIndex = 1
+                    }
+                    x[myIndex-1].style.display = "block";      
+                    setTimeout(carousel, 6000); // Change image every 2 seconds
+                }
+            </script>
+</div>
+<div class="card bg-info text-white mt-5">
+  <h1 >This is <strong>AMAN Loan service</strong> and this only for student who are <abbr>B-TEACH student</abbr> and only for friend of AMAN</h1>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    
+</style>
+<div class="container-fluid my-3" style="auto-flow:hidden;">
+    <div class="row">
+        <div class="col-8">
+            {% for c in cart %}
+            <div class="card my-5">
+                <h1>product:-{{forloop.counter}}</h1>
+                <hr>
+                <div class="d-inline">
+                <img style="width:200px; height:200px;" src="{{c.product.Product_image.url}}" alt="">
+                    <label for="">Quentity:-</label>
+                    <i class="far minus fa-minus-square"></i>
+                    <span class="quentity">1</span>
+                    <i class="far plus fa-plus-square"></i>
+            </div>
+            <p class="mx-5 my-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, consectetur? Debitis sequi, nemo earum eveniet cumque voluptas animi doloremque, minus voluptatibus sapiente dolorum possimus aut. Perspiciatis earum error unde aperiam.</p>
+            <button style="width:100px;" class="bg-primary remove mx-2 my-2"><a style="text-decoration:none; color:white;" href="#">Remove</a></button>
+            <p style="margin-left:900px;"><strong>Rs{{c.product.Selling_price}}</strong></p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-4">
+             <div class="card">
+                 <h3 class="text-center">BELLING:-</h3>
+                 <div class="mx-4 my-2 card text-center" style="height:auto;">
+                 <h6 class="text-danger">Amount:-  {{amount}}</h6><br>
+                 <h6 class="text-danger">Shiping_Charge:-  $30</h6><br>
+                 <div class="card-footer bg-success text-white"><h>Total_Price:-  {{totalamount}}</h6></div><br><br>
+                 </div>
+                <a style="text-decoration:none; height:50px;" class="btn btn-primary my-3" href="{% url 'place' %}">Place_order</a>
+             </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} 
